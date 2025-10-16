@@ -1,6 +1,22 @@
-[package]
-name = "rust-examples"
-version = "0.1.0"
-edition = "2024"
+[workspace]
+members = [
+  "crates/*",
+  "apps/*/*",
+  "tools/*",
+]
+default-members = ["crates/*", "apps/app_suite/api", "apps/app_suite/cli", "apps/game_suite/treehouse",  "tools/*"]
 
-[dependencies]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+rust-version = "1.78"
+
+[workspace.dependencies]
+anyhow = "1"
+serde = { version = "1", features = ["derive"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time"] }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+unused = "deny"

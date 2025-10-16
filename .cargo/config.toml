@@ -1,0 +1,8 @@
+[build]
+target-dir = "target"
+
+[alias]
+t = "test --workspace"
+c = "clippy --workspace --all-targets -- -D warnings"
+fmt = "fmt --all"
+bench = "bench --workspace"

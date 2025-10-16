@@ -13,6 +13,20 @@ fn what_is_your_name() -> String {
 }
 
 fn main() {
+    let visitor_list = ["bert", "steve", "fred"];
+    let mut allow_them_in = false;
+
     let name = what_is_your_name();
-    println!("Hello, {name}!");
+
+    for i in 0..visitor_list.len() {
+        if visitor_list[i] == name {
+            allow_them_in = true;
+        }
+    }
+
+    if allow_them_in {
+        println!("Welcome.");
+    } else {
+        println!("Sorry, you are not on the list.")
+    }
 }

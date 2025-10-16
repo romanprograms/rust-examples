@@ -1,5 +1,23 @@
 use std::io::stdin;
 
+struct Visitor {
+    name: String,
+    greeting: String,
+}
+
+impl Visitor {
+    fn new(name: &str, greeting: &str) -> Self {
+        Self {
+            name: name.to_string(),
+            greeting: greeting.to_string(),
+        }
+    }
+
+    fn greet_visitor(&self) {
+        println!("{}", self.greeting);
+    }
+}
+
 fn what_is_your_name() -> String {
     let mut your_name = String::new();
 
@@ -13,20 +31,18 @@ fn what_is_your_name() -> String {
 }
 
 fn main() {
-    let visitor_list = ["bert", "steve", "fred"];
-    let mut allow_them_in = false;
+    let visitor_list = [
+        Visitor::new("bert", "Hello Bert, enjoy your treehouse."),
+        Visitor::new("steve", "Hi Steve. Your milk is in the fridge."),
+        Visitor::new("fred", "Wow, who invited Fred?"),
+    ];
 
     let name = what_is_your_name();
 
-    for i in 0..visitor_list.len() {
-        if visitor_list[i] == name {
-            allow_them_in = true;
-        }
-    }
+    let known_visitor = visitor_list.iter().find(|visitor| visitor.name == name);
 
-    if allow_them_in {
-        println!("Welcome.");
-    } else {
-        println!("Sorry, you are not on the list.")
+    match known_visitor {
+        Some(v) => v.greet_visitor(),
+        None => println!("You are not on the visitor list. Please leave."),
     }
 }

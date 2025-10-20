@@ -1,0 +1,11 @@
+[package]
+name = "flappy_ascii"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+bracket-lib = "~0.8.1"
+
+[lints]
+workspace = true

@@ -4,7 +4,7 @@ members = [
   "apps/*/*",
   "tools/*",
 ]
-default-members = ["crates/*", "apps/app_suite/api", "apps/app_suite/cli", "apps/game_suite/treehouse",  "tools/*"]
+default-members = ["crates/*", "apps/app_suite/api", "apps/app_suite/cli", "apps/game_suite/treehouse", "apps/game_suite/flappy_ascii", "tools/*"]
 
 resolver = "2"
 

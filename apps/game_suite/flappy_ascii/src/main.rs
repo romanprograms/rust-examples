@@ -2,9 +2,29 @@
 
 use bracket_lib::prelude::*;
 
-// const SCREEN_WIDTH: i32 = 80;
+#[allow(dead_code)]
+const SCREEN_WIDTH: i32 = 80;
 const SCREEN_HEIGHT: i32 = 50;
 const FRAME_DURATION: f32 = 75.0;
+
+#[allow(dead_code)]
+struct Obstacle {
+    x: i32,
+    gap_y: i32,
+    size: i32,
+}
+
+#[allow(dead_code)]
+impl Obstacle {
+    fn new(x: i32, score: i32) -> Self {
+        let mut random = RandomNumberGenerator::new();
+        Obstacle {
+            x,
+            gap_y: random.range(10, 40),
+            size: i32::max(2, 20 - score),
+        }
+    }
+}
 
 struct Player {
     x: i32,
